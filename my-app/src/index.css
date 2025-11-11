@@ -1,0 +1,521 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif; /* Changed font for a different look */
+  line-height: 1.6;
+  color: #222;
+  background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%); /* Warm gradient background */
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #e17055 0%, #d63031 100%); /* Red-orange gradient */
+  color: white;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #b71540;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav a, .auth-button {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav a:hover, .auth-button:hover {
+  color: #ffeaa7;
+  transform: scale(1.05);
+}
+
+.auth-button {
+  background: #fdcb6e; /* Yellow button */
+  border: none;
+  padding: 8px 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+  color: #333; /* Dark text for contrast */
+}
+
+.auth-button:hover {
+  background: #e17055;
+}
+
+/* Banner */
+.banner {
+  display: flex;
+  align-items: center;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%); /* Purple gradient */
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Overlay for text readability */
+  z-index: 1;
+}
+
+.banner-content {
+  flex: 1;
+  padding: 40px;
+  text-align: center;
+  color: white;
+  z-index: 2;
+  position: relative;
+}
+
+.banner-content h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.banner-content p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.cta-button {
+  background: #fdcb6e; /* Yellow button */
+  color: #333;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+  background: #e17055;
+  transform: translateY(-2px);
+}
+
+.banner-images {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.banner-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.banner-images img:hover {
+  transform: scale(1.05);
+}
+
+/* About Us */
+.about-us {
+  padding: 60px 0;
+  background: #ffeaa7; /* Light yellow background */
+  border-radius: 10px;
+  margin: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.about-us h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #d63031; /* Red heading */
+  font-size: 2.5rem;
+}
+
+.about-us p {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.about-us ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.about-us li {
+  background: #fab1a0; /* Light orange background */
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  font-weight: 500;
+}
+
+.about-us li::before {
+  content: '✓'; /* Simple checkmark icon */
+  color: #d63031; /* Red checkmark */
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* Contact Us */
+.contact-us {
+  padding: 60px 0;
+  background: #fdcb6e; /* Yellow background */
+  border-radius: 10px;
+  margin: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-us h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #d63031; /* Red heading */
+  font-size: 2.5rem;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: #ffeaa7; /* Light yellow form background */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #e17055; /* Orange focus */
+  outline: none;
+}
+
+.submit-button {
+  background: #d63031; /* Red button */
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+  background: #b71540;
+  transform: translateY(-2px);
+}
+
+.error {
+  color: #d63031; /* Red error */
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+/* Teachers */
+.teachers {
+  padding: 60px 0;
+  background: #ffeaa7; /* Light yellow background */
+  border-radius: 10px;
+  margin: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.teachers h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #d63031; /* Red heading */
+  font-size: 2.5rem;
+}
+
+.teachers-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.teacher-card {
+  background: #fab1a0; /* Light orange background */
+  padding: 25px;
+  border-radius: 12px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.teacher-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.teacher-card h3 {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.teacher-card p {
+  margin: 5px 0;
+  color: #666;
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(90deg, #2d3436 0%, #636e72 100%); /* Dark gray gradient */
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: auto;
+  border-top: 2px solid #d63031; /* Red border */
+}
+
+.footer p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.footer nav a {
+  color: #fdcb6e; /* Yellow links */
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer nav a:hover {
+  color: #fab1a0; /* Light orange hover */
+}
+
+/* Auth Modal */
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease;
+}
+
+.auth-form {
+  background: #ffeaa7; /* Light yellow background */
+  padding: 30px;
+  border-radius: 12px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.auth-form h2 {
+  margin-bottom: 20px;
+  color: #d63031; /* Red heading */
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.auth-form input:focus {
+  border-color: #e17055; /* Orange focus */
+}
+
+.auth-form button {
+  background: #d63031; /* Red button */
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.auth-form button:hover {
+  background: #b71540;
+}
+
+.close-button {
+  background: #e17055; /* Orange close button */
+}
+
+.close-button:hover {
+  background: #d63031;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 10px;
+  }
+  .nav {
+    margin-top: 10px;
+  }
+  .banner {
+    flex-direction: column;
+    height: auto;
+  }
+  .banner-content h1 {
+    font-size: 2rem;
+  }
+  .teachers-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-us ul {
+    flex-direction: column;
+  }
+}
+/* Enroll Modal */
+.enroll-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease;
+}
+
+.enroll-form {
+  background: #ffeaa7; /* Light yellow background */
+  padding: 30px;
+  border-radius: 12px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.enroll-form h2 {
+  margin-bottom: 20px;
+  color: #d63031; /* Red heading */
+}
+
+.enroll-form input,
+.enroll-form select,
+.enroll-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.enroll-form input:focus,
+.enroll-form select:focus,
+.enroll-form textarea:focus {
+  border-color: #e17055; /* Orange focus */
+}
+
+.submit-button {
+  background: #d63031; /* Red button */
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+  background: #b71540;
+}
+
+.close-button {
+  background: #e17055; /* Orange close button */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.close-button:hover {
+  background: #d63031;
+}
